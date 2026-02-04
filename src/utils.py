@@ -1,0 +1,1 @@
+# any fnality written in common way , used in entire application ... save my model in cloud etc
