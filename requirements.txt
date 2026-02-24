@@ -1,4 +1,8 @@
 pandas>=1.5.0
 numpy
 seaborn
+matplotlib
+scikit-learn
+catboost
+xgboost
 -e . 

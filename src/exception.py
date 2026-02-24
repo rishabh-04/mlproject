@@ -1,7 +1,7 @@
 # handling
 
 import sys #sys library -- provides runtimeerrorinfo +various fns and variables also used in exception handling#
-import logging
+from src.logger import logging
 def error_message_detail(error,error_detail:sys):#error - object, error_detail - sys module
     _,_,exc_tb = error_detail.exc_info()
     #  which line which file exception has occured --> exc_tb
