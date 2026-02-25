@@ -2,6 +2,7 @@
 
 import os                         # Used for interacting with operating system (file paths, directories)
 import sys                        # Used for system-specific parameters & exception handling
+from src.components.data_transformation import DataTransformation
 from src.exception import CustomException   # Custom exception class for better error handling
 from src.logger import logging    # Logging module to track execution & debug errors
 import pandas as pd               # Used for data manipulation using DataFrames
@@ -9,7 +10,7 @@ import numpy as np                # Used for numerical operations on arrays
 
 from sklearn.model_selection import train_test_split   # Used to split dataset into training & testing sets
 from dataclasses import dataclass   # Used to create classes for storing configuration data
-
+   # Importing data transformation component
 @dataclass #decorator to automatically generate special methods like __init__() for the class
 class DataIngestionConfig:
     train_data_path: str = os.path.join('artifacts', 'train.csv')  # Path to save training data
@@ -48,5 +49,10 @@ class DataIngestion:
         
 if __name__ == "__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data = obj.initiate_data_ingestion()
+
+#object.method() - to call the method of the class using the object created from the class
+    data_transformation = DataTransformation()
+    data_transformation.initiate_data_transformation(train_data,test_data)
             
+            #combined both data ingestion and data transformation in one file for better modularity and to avoid circular imports between files
