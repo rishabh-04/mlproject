@@ -3,6 +3,8 @@
 import os                         # Used for interacting with operating system (file paths, directories)
 import sys                        # Used for system-specific parameters & exception handling
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
 from src.exception import CustomException   # Custom exception class for better error handling
 from src.logger import logging    # Logging module to track execution & debug errors
 import pandas as pd               # Used for data manipulation using DataFrames
@@ -53,6 +55,8 @@ if __name__ == "__main__":
 
 #object.method() - to call the method of the class using the object created from the class
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data,test_data)
+    train_arr,test_arr, _ = data_transformation.initiate_data_transformation(train_data,test_data)
+    modeltrainer = ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
             
             #combined both data ingestion and data transformation in one file for better modularity and to avoid circular imports between files
